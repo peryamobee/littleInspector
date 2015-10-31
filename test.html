@@ -12,107 +12,53 @@ Released under the MIT license: http://jsbin.mit-license.org
 <html lang="en" ng-app="MyApp">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>test</title>
+    <style>
+        body{
+            background:rgba(215, 122, 195, 0.58);
+        }
+        pre{
+            background: rgb(212, 227, 234);
+            border: 1px solid;
+            border-radius: 1em;
+            padding: 0.5em;
+        }
+        textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: transparent;
+            position: absolute;
+            top: -10000px;
+        }
+    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://rawgit.com/marklagendijk/ui-router.stateHelper/master/statehelper.js"></script>
+    <script>
+        function copyText(){
+            var code = document.querySelector('pre').innerText;
+            var select = document.querySelector('#clipboard');
+            select.value = code;
+            select.select();
+
+            try {
+                document.execCommand('copy');
+                alert('Text copied to clipboard!');
+            } catch (err) {
+                window.prompt("To copy the text to clipboard: Ctrl+C, Enter", code);
+            }
+
+        }
+    </script>
 </head>
 <body>
-<a
-    href="javascript:
-var script = document.createElement('script');
-script.src = 'https://rawgit.com/pyrsmk/toast/master/toast.min.js';
-script.onload = afterload;
-document.head.appendChild(script);
 
-function afterload (){
-    if(location.hostname == 'localhost'){
-        toast(
-            ['https://cdnjs.cloudflare.com/ajax/libs/crel/2.1.8/crel.min.js', function () {return window.crel;}]
-            ,'inspector3.js'
-            ,'style.css'
-        )
-    }else{
-        toast(
-            ['https://cdnjs.cloudflare.com/ajax/libs/crel/2.1.8/crel.min.js', function () {return window.crel;}]
-            ,'https://rawgit.com/peryamobee/littleInspector/master/inspector3.js'
-            ,'https://rawgit.com/peryamobee/littleInspector/master/style.css'
-        )
-    }
-
-
-}"
->link to save</a>
 <input type="text" value="text" id="pery"/>
 <input type="text" value="text" id="somo"/>
 <input type="text" value="text" id="search"/>
 
-<ui-view></ui-view>
-
-<script id="jsbin-javascript">
-    angular.module('MyApp', ['ui.router', 'ui.router.stateHelper'])
-
-            .config(function($urlRouterProvider, $stateProvider, stateHelperProvider){
-
-                stateHelperProvider.state({
-                    name: "root",
-                    url: "^",
-                    abstract: true,
-                    template:  '\
-                    <nav>\
-                            <ul>\
-                                <li><a ui-sref="root.discovery">discovery</a></li><ul>\
-                                <li><a ui-sref="root.discovery.bubbles">bubbles</a></li>\
-                                <li><a ui-sref="root.discovery.streams">streams</a></li>\
-                            </ul>\
-                          <li><a ui-sref="root.contact">contact</a></li>\
-                    </nav>\
-                    <ui-view></ui-view>\
-                    ',
-                    controller: function($log){
-                        $log.debug('Main');
-                    },
-                    children: [ {
-                        name:'discovery',
-                        url: '/discovery',
-                        template: '<h1>discovery</h1> <ui-view></ui-view>',
-                        controller: function($log){
-                            $log.debug('discovery');
-                        },
-                        children: [{
-                            name:"bubbles",
-                            url:"/bubbles",
-                            template: '<h2>bubbles 1</h2>',
-                            controller: function($log){
-                                $log.debug('bubbles');
-                            }
-                        }, {
-                            name:"streams",
-                            url:"/streams",
-                            template: '<h2>streams</h2>',
-                            controller: function ($log) {
-                                $log.debug('streams');
-                            }
-                        }]
-                    },{
-                        name:'contact',
-                        url: '/contact',
-                        template: '<h1>Contact</h>',
-                        controller: function($log){
-                            $log.debug('Contact');
-                        }
-                    }]
-                }, "IgnoreRoot");
-
-                $urlRouterProvider.otherwise('/');
-
-            });
-
-
-
-
-
-</script>
 </body>
 </html>
