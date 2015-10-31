@@ -1,0 +1,11 @@
+body{
+    padding-top:2em;
+}
+.inspecor {
+    width: 100%;
+    min-height: 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(23, 78, 234, 0.3);
+}
