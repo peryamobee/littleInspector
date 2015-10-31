@@ -67,6 +67,10 @@ Released under the MIT license: http://jsbin.mit-license.org
         .toolkitbar.fail button{
             display: none;
         }
+        .keyword{
+            font-size: 1.1;
+            color: aliceblue;
+        }
 
     </style>
 
@@ -79,14 +83,19 @@ Released under the MIT license: http://jsbin.mit-license.org
     <br/>
     then copy the code blow <button onclick="copyText(this)">copy code <i class="fa fa-check"></i></button>
     <br/>
-    then edit the bookmark and past the code to the URL section and save
+    then edit the bookmark <span title="right click -> properties -> URL "></span>and past the code to the URL section
+    <br/>
+    go to the start of the text in URL and add <span class="keyword">javascript:</span> and save
+    <br/>
+    <br/>
+    for nice view you can  rename  the link to 'Inspector'
     <br/>
 </p>
 
 <p>
-    now you have a link that Initiate the <span class="keyword">Inspector</span> on your work page
+    now you have a link that Initiate the <span class="keyword">Inspector</span> on your rendered page
     <br/>
-    just go to your page and Click the link you just create
+    just go to your rendered page and Click the link you just created
     <br/>
 </p>
 
@@ -142,7 +151,6 @@ good luck <i class="fa fa-battery-full"></i>
 
 
 <pre>
-javascript://
 var script = document.createElement('script');
 script.src = 'https://rawgit.com/pyrsmk/toast/master/toast.min.js';
 script.onload = afterload;
