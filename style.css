@@ -8,4 +8,11 @@ body{
     top: 0;
     left: 0;
     background: rgba(23, 78, 234, 0.3);
+    padding-left: 1em;
+}
+.code{
+    cursor: pointer;
+    background-color: bisque;
+    border-radius: 0.6em;
+    padding: 0 1em;
 }
