@@ -1,18 +1,9 @@
 
 <!DOCTYPE html>
-<!--
-Created using JS Bin
-http://jsbin.com
-
-Copyright (c) 2015 by perymimon (http://jsbin.com/bofapi/4/edit)
-
-Released under the MIT license: http://jsbin.mit-license.org
--->
-<meta name="robots" content="noindex">
 <html lang="en" ng-app="MyApp">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>install</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <style>
         body{
@@ -32,6 +23,9 @@ Released under the MIT license: http://jsbin.mit-license.org
             color: black;
             text-overflow: ellipsis;
             overflow: hidden;
+        }
+        pre script{
+            display: inline;
         }
         textarea{
             width: 100%;
@@ -72,6 +66,16 @@ Released under the MIT license: http://jsbin.mit-license.org
             color: aliceblue;
         }
 
+        .icon{
+            display: inline-block;
+            border-radius: 1em;
+            border: 2px solid powderblue;
+            padding: 0 0.4em;
+            font-size: 12px;
+            margin-left: -0.3em;
+            color: wheat;
+            cursor: default;
+        }
     </style>
 
 </head>
@@ -79,17 +83,15 @@ Released under the MIT license: http://jsbin.mit-license.org
 <p>
     Hi you <i class="fa fa-smile-o"></i>,
     <br/>
-    create a shortcut on the Bookmark Bar by <a href="inspector">draging this link to the bookmark</a>
+    create a shortcut on the Bookmark Bar by draging this link to the bookmark : <a href="inspector">Inspector</a>
     <br/>
     then copy the code blow <button onclick="copyText(this)">copy code <i class="fa fa-check"></i></button>
     <br/>
-    then edit the bookmark <span title="right click -> properties -> URL "></span>and past the code to the URL section
+    then edit the bookmark <span class="icon" title="bookmark right click -> properties -> URL ">?</span> and past the code to the URL section
     <br/>
-    go to the start of the text in URL and add <span class="keyword">javascript:</span> and save
+    go to the start of the text in the URL and add <span class="keyword">javascript:</span> and save
     <br/>
-    <br/>
-    for nice view you can  rename  the link to 'Inspector'
-    <br/>
+
 </p>
 
 <p>
@@ -104,7 +106,7 @@ good luck <i class="fa fa-battery-full"></i>
 <br/>
 <script>
     function copyText(me){
-        var code = document.querySelector('pre').innerText;
+        var code = document.querySelector('pre').innerText.replace(/\s+/g,' ');
         var select = document.querySelector('#clipboard');
         var toolkitbar = document.querySelector('.toolkitbar');
         select.value = code;
@@ -120,26 +122,7 @@ good luck <i class="fa fa-battery-full"></i>
 
     }
 </script>
-<script>
-    function addToBookmark(title,href){
-        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
-            window.sidebar.addPanel(title,href,'');
-        } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
-            window.external.AddFavorite(href, title);
-        } else if(window.opera && window.print) { // Opera Hotlist
-            this.title = title;
-            return true;
-        } else { // webkit - safari/chrome
-            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
-        }
-    }
 
-    function addCodeToBookmark(){
-        var code = document.querySelector('pre').innerText;
-        addToBookmark( 'inspector', code );
-    }
-
-</script>
 
 <!--<div style="text-align: center;" class="toolkitbar">-->
     <!--<button onclick="copyText(this)">copy code <i class="fa fa-check"></i></button>-->
@@ -170,6 +153,8 @@ function afterload (){
             ,'https://rawgit.com/peryamobee/littleInspector/master/style.css'
         )
     }
+
+
 }
 </pre>
 
