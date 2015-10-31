@@ -1,0 +1,70 @@
+body{
+    background:rgba(215, 122, 195, 0.58);
+    font-size: 18px;
+    font-family: cursive;
+}
+a{
+    text-decoration: none;
+}
+pre{
+    background: rgb(212, 227, 234);
+    border: 1px solid;
+    border-radius: 1em;
+    padding: 0.5em;
+    text-decoration: none;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+pre script{
+    display: inline;
+}
+textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background: transparent;
+    position: absolute;
+    top: -10000px;
+}
+button{
+    background: rgb(0, 0, 0);
+    color: powderblue;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 0.1em;
+    border: 2px solid;
+    cursor: pointer;
+}
+button:active,button:focus{
+    outline: none;
+}
+button:not(.done) i{
+    display: none;
+}
+.toolkitbar{
+    text-align: center;
+
+}
+.toolkitbar:not(.fail) i.fa-frown-o{
+    display: none;
+}
+.toolkitbar.fail button{
+    display: none;
+}
+.keyword{
+    font-size: 1.1;
+    color: aliceblue;
+}
+
+.icon{
+    display: inline-block;
+    border-radius: 1em;
+    border: 2px solid powderblue;
+    padding: 0 0.4em;
+    font-size: 12px;
+    margin-left: -0.3em;
+    color: wheat;
+    cursor: default;
+}
